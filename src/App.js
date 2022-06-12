@@ -3,6 +3,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
@@ -36,27 +38,33 @@ function App() {
     // }, );
   return (
     <div className="App">
-     <form action="" onSubmit={handleSubmit} ><input type="text" value={text} onChange={(e)=>setText(e.target.value)} /></form>
+     <form  action=""   onSubmit={handleSubmit}   ><input className="search-container" type="text" placeholder="Search.." value={text} onChange={(e)=>setText(e.target.value)} />
+  
+     <button type="submit"><i class="fa fa-search"></i> </button> 
+     </form>
      {
       loading? <h2>loading...</h2>
       : results.map(el=>
-      <div>
-        <h1> Name : {el.name.common} </h1>
-        <h2> Capital : {el.capital} </h2>
-        <h2> Region : {el.region} </h2>
+      <div >
+        <div class='test'>
+        <h1><span class='colo'>  Name : </span> {el.name.common} </h1>
+        <h2><span class='colo'>Capital : </span> {el.capital} </h2>
+        <h2><span class='colo'> Region :</span> {el.region} </h2>
         {/* <h2> currencies: </h2>
        { Object(el.currencies).map(el=>
           <h2>  {el}  </h2>
         )} */}
       
         
-        <h2> languages:
-          </h2>
+        <h2> <span class='colo'>languages:</span>
+          </h2><ul><li class="test4">
            {Object.values(el.languages).map(el=>
           <h2>  {el}  </h2>
-          )}
-        <img height={300}  width={500} src={el.flags.png} alt=""/>
-       <a href={el.maps.openStreetMaps} target="_blank" > Open Maps :   </a>
+          )} </li></ul>
+          </div>
+       <div class='test2' ><img height={300}  width={500} src={el.flags.png} alt=""/></div>
+      
+       <button class="button-24" > <a href={el.maps.openStreetMaps} target="_blank" >  Open Maps  </a>   </button>
        
        
       </div>
