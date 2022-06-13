@@ -50,12 +50,16 @@ function App() {
         <h1><span class='colo'>  Name : </span> {el.name.common} </h1>
         <h2><span class='colo'>Capital : </span> {el.capital} </h2>
         <h2><span class='colo'> Region :</span> {el.region} </h2>
-        {/* <h2> currencies: </h2>
-       { Object(el.currencies).map(el=>
-          <h2>  {el}  </h2>
-        )} */}
-      
-        
+        <h2> <span class='colo'> currencies: </span></h2>
+        <h2>{ el.currencies[Object.keys(el.currencies)[0]].name}</h2>
+        <h2>{ el.currencies[Object.keys(el.currencies)[0]].symbol}</h2>
+     {console.log(el.currencies[Object.keys(el.currencies)[0]].symbol)}
+        {/* <h2>
+          {
+            Object.keys(el.currencies).map(el=>
+             <h2> {el.Object.values(el).map(el=><h2>{el}</h2>)}</h2>)
+          }
+        </h2> */}
         <h2> <span class='colo'>languages:</span>
           </h2><ul><li class="test4">
            {Object.values(el.languages).map(el=>
